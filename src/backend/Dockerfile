@@ -1,9 +1,22 @@
+# FROM python:3.6.10
+
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
+
+# COPY requirements.txt /usr/src/app
+# RUN pip install -r requirements.txt
+
+# ENTRYPOINT [ "flask" ]
+# CMD ["run", "--host=0.0.0.0", "--port=5000"]
+
+
+
 FROM python:3.6.10
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/local/share/nginx/src/app
+WORKDIR /usr/local/share/nginx/src/app
 
-COPY requirements.txt /usr/src/app
+COPY requirements.txt /usr/local/share/nginx/src/app
 RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "flask" ]

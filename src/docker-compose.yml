@@ -1,3 +1,29 @@
+# version: "3"
+# services:
+#   frontend:
+#     container_name: frontend
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     ports:
+#       - 80:80
+#       - 443:443
+#     volumes:
+#       - /Users/ELIAS/home/ubuntu/ssl:/etc/nginx/certs
+
+#   backend:
+#     restart: always
+#     container_name: backend
+#     build: ./backend
+#     expose:
+#       - 5000
+#     volumes:
+#       - ./backend:/usr/src/app
+#     environment:
+#       - FLASK_ENV=development
+#       - FLASK_APP=app.py
+#       - FLASK_DEBUG=1
+
 version: "3"
 services:
   frontend:
@@ -9,7 +35,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/ubuntu/ssl:/etc/nginx/certs
+      - /Users/ELIAS/home/ubuntu/ssl:/etc/nginx/certs
+      # - /usr/local/etc/openssl@1.1/certs:/usr/local/share/ssl
 
   backend:
     restart: always
@@ -18,7 +45,7 @@ services:
     expose:
       - 5000
     volumes:
-      - ./backend:/usr/src/app
+      - ./backend:/usr/local/share/nginx/src/app
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py

@@ -16,7 +16,8 @@ services:
     expose:
       - 5000
     volumes:
-      - ./backend:/usr/src/app
+      # - ./backend:/usr/src/app
+      - ./backend:/usr/local/share/nginx/src/app
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
